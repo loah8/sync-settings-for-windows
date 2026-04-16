@@ -1,0 +1,280 @@
+/* profile-settings plugin styles */
+
+/* ── Level 1: 프로파일 행 ── */
+
+.profile-settings-row .setting-item-name {
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 0.95em;
+	letter-spacing: 0.02em;
+}
+
+.profile-settings-row-name {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+
+.profile-settings-chevron {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	opacity: 0.5;
+}
+
+.profile-settings-chevron svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* 활성 프로파일 행 — 강한 시각적 강조 */
+.profile-settings-row-active {
+	border-left: 4px solid var(--interactive-accent);
+	background: var(--background-modifier-hover);
+	padding-left: calc(var(--size-4-3, 12px) - 4px) !important;
+}
+
+.profile-settings-row-active .setting-item-name {
+	color: var(--text-accent);
+	font-weight: 700;
+}
+
+.profile-settings-active-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	font-size: 0.7em;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	color: var(--text-on-accent);
+	background: var(--interactive-accent);
+	border-radius: 4px;
+}
+
+/* 버튼 내 아이콘 */
+.profile-settings-btn-icon {
+	display: inline-flex;
+	align-items: center;
+	margin-right: 4px;
+}
+
+.profile-settings-btn-icon svg {
+	width: 14px;
+	height: 14px;
+}
+
+/* + 버튼 행 */
+.profile-settings-add-row {
+	border-bottom: none !important;
+	justify-content: flex-end;
+}
+
+.profile-settings-add-row .setting-item-name,
+.profile-settings-add-row .setting-item-description {
+	display: none;
+}
+
+/* ── Level 2: 아코디언 ── */
+
+.profile-settings-accordion {
+	border-left: 2px solid var(--background-modifier-border);
+	margin-left: 20px;
+	margin-right: 12px;
+	margin-bottom: 20px;
+}
+
+/* Options 헤더 행 */
+.profile-settings-options-header {
+	border-bottom: 1px solid var(--background-modifier-border);
+	padding: 6px 16px 6px 16px !important;
+	margin-bottom: 4px;
+}
+
+.profile-settings-options-header .setting-item-name {
+	font-weight: 600;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	opacity: 0.5;
+}
+
+/* Sync 라벨 (Options 바 우측) */
+.profile-settings-sync-label {
+	font-size: 0.7em;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	opacity: 0.4;
+	margin-right: 4px;
+}
+
+/* Save 아이콘 — disabled 상태 */
+.profile-settings-save-disabled {
+	opacity: 0.15 !important;
+	cursor: default !important;
+	pointer-events: none;
+}
+
+/* ── Level 3: 토글 항목 ── */
+
+.profile-settings-items-container {
+	margin-left: 12px;
+	margin-right: 12px;
+	padding: 4px 0;
+}
+
+.profile-settings-item-row {
+	padding: 6px 8px 6px 16px !important;
+	border-bottom: none !important;
+}
+
+.profile-settings-item-row .setting-item-name {
+	font-size: 0.82em;
+	opacity: 0.7;
+}
+
+/* Detail modal */
+.profile-settings-detail-title {
+	margin: 4px 0 12px 0;
+}
+
+.profile-settings-detail-empty {
+	opacity: 0.6;
+	font-style: italic;
+	text-align: center;
+	padding: 20px;
+}
+
+.profile-settings-detail-list {
+	max-height: 50vh;
+	overflow-y: auto;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+}
+
+.profile-settings-detail-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 12px;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.profile-settings-detail-row:last-child {
+	border-bottom: none;
+}
+
+.profile-settings-detail-left {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+	flex: 1;
+}
+
+.profile-settings-detail-label {
+	font-size: 0.95em;
+	font-weight: 500;
+}
+
+.profile-settings-detail-sub {
+	font-size: 0.78em;
+	opacity: 0.55;
+}
+
+.profile-settings-detail-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	font-size: 0.68em;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	border-radius: 4px;
+	flex-shrink: 0;
+	margin-left: 8px;
+}
+
+.profile-settings-detail-on {
+	color: var(--text-on-accent);
+	background: var(--interactive-accent);
+}
+
+.profile-settings-detail-off {
+	color: var(--text-muted);
+	background: var(--background-modifier-border);
+}
+
+.profile-settings-theme-hint {
+	font-size: 12px;
+	font-weight: 400;
+	opacity: 0.7;
+	margin-left: 8px;
+	font-style: italic;
+}
+
+/* Profiles folder row — wider input */
+.profile-settings-folder-row .setting-item-control {
+	flex-grow: 1;
+}
+
+.profile-settings-folder-row input[type="text"] {
+	width: 100%;
+	min-width: 360px;
+	font-family: var(--font-monospace);
+	font-size: 0.9em;
+}
+
+/* Admin / same-drive note at top of settings tab */
+.profile-settings-admin-note {
+	font-size: 0.85em;
+	padding: 10px 14px;
+	margin: 0 0 16px 0;
+	border-left: 4px solid var(--color-orange, #e49c43);
+	background: rgba(228, 156, 67, 0.12);
+	color: var(--text-normal);
+	border-radius: 0 4px 4px 0;
+}
+
+/* Compact confirm modal */
+.modal.profile-settings-compact-modal {
+	width: auto !important;
+	min-width: 280px;
+	max-width: 360px;
+}
+
+.profile-settings-compact-modal .modal-content {
+	padding: 18px 20px 16px 20px;
+}
+
+/* Simple confirm modal text (no title) */
+.profile-settings-confirm-text {
+	font-size: 1.05em;
+	font-weight: 500;
+	text-align: center;
+	margin: 8px 0 20px 0;
+}
+
+/* Create profile modal — input larger than label */
+.profile-settings-create-wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin: 8px 0 16px 0;
+}
+
+.profile-settings-create-label {
+	font-size: 0.78em;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	opacity: 0.6;
+}
+
+.profile-settings-create-input {
+	width: 100%;
+	font-size: 1.15em;
+	padding: 10px 12px;
+}
+
+.profile-settings-create-hint {
+	font-size: 0.78em;
+	opacity: 0.55;
+}

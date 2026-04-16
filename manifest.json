@@ -1,0 +1,10 @@
+{
+	"id": "profile-settings",
+	"name": "Sync Settings for Windows",
+	"version": "0.1.0",
+	"minAppVersion": "1.5.0",
+	"description": "Share settings across vaults using profiles.",
+	"author": "loah8",
+	"authorUrl": "https://github.com/loah8",
+	"isDesktopOnly": true
+}
