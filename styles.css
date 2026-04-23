@@ -1,0 +1,472 @@
+/* sync-settings plugin styles */
+
+/* ── Level 1: 프로파일 행 ── */
+
+/* Profiles 섹션 헤더: 아래 프로파일 행과 시각적으로 분리 */
+.sync-settings-profiles-heading {
+	border-bottom: 1px solid var(--background-modifier-border);
+	padding-bottom: 8px !important;
+	margin-bottom: 8px;
+}
+
+/* 각 프로파일 행 사이 구분선 */
+.sync-settings-row {
+	border-bottom: 1px solid var(--background-modifier-border) !important;
+}
+
+.sync-settings-row .setting-item-name {
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 0.95em;
+	letter-spacing: 0.02em;
+}
+
+.sync-settings-row-name {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+
+.sync-settings-chevron {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	opacity: 0.5;
+}
+
+.sync-settings-chevron svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* 활성 프로파일 행 — 강한 시각적 강조 */
+.sync-settings-row-active {
+	border-left: 4px solid var(--interactive-accent);
+	background: var(--background-modifier-hover);
+	padding-left: calc(var(--size-4-3, 12px) - 4px) !important;
+}
+
+.sync-settings-row-active .setting-item-name {
+	color: var(--text-accent);
+	font-weight: 700;
+}
+
+.sync-settings-active-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	font-size: 0.7em;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	color: var(--text-on-accent);
+	background: var(--interactive-accent);
+	border-radius: 4px;
+}
+
+/* 프로파일 행 subtitle 의 카운트 텍스트 */
+.sync-settings-row-count {
+	font-family: inherit;
+	font-size: var(--font-ui-smaller, 12px);
+	opacity: 0.75;
+}
+
+/* 버튼 내 아이콘 */
+.sync-settings-btn-icon {
+	display: inline-flex;
+	align-items: center;
+	margin-right: 4px;
+}
+
+.sync-settings-btn-icon svg {
+	width: 14px;
+	height: 14px;
+}
+
+/* + 버튼 행 */
+.sync-settings-add-row {
+	border-bottom: none !important;
+	justify-content: flex-end;
+}
+
+.sync-settings-add-row .setting-item-name,
+.sync-settings-add-row .setting-item-description {
+	display: none;
+}
+
+/* ── Level 2: 아코디언 ── */
+
+.sync-settings-accordion {
+	border-left: 2px solid var(--background-modifier-border);
+	margin-left: 20px;
+	margin-right: 12px;
+	margin-bottom: 20px;
+}
+
+/* Options 헤더 행 */
+.sync-settings-options-header {
+	border-bottom: 1px solid var(--background-modifier-border);
+	padding: 6px 16px 6px 16px !important;
+	margin-bottom: 4px;
+}
+
+.sync-settings-options-header .setting-item-name {
+	font-weight: 600;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	opacity: 0.5;
+}
+
+/* Sync 컬럼 정렬: options header / item row 의 controlEl 을 grid 로 강제.
+   [ badge area | 48px toggle area ] — SYNC 라벨과 토글은 둘 다 2번째 48px 칸의
+   정중앙에 위치. 이로써 토글 수직선과 SYNC 헤더가 완벽히 일치. */
+.sync-settings-options-header .setting-item-control,
+.sync-settings-item-row .setting-item-control {
+	display: grid !important;
+	grid-template-columns: 1fr 48px;
+	align-items: center;
+	gap: 10px;
+	padding: 0 !important;
+	margin: 0;
+}
+
+.sync-settings-sync-label {
+	grid-column: 2;
+	justify-self: center;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 0.7em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	opacity: 0.55;
+}
+
+.sync-settings-item-row .checkbox-container {
+	grid-column: 2;
+	justify-self: center;
+	margin: 0 !important;
+}
+
+/* 아코디언 하단 footer — dirty status + Save 버튼 */
+.sync-settings-accordion-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 16px;
+	border-top: 1px solid var(--background-modifier-border);
+	margin-top: 4px;
+}
+
+.sync-settings-footer-status {
+	display: inline-flex;
+	align-items: center;
+	font-size: var(--font-ui-small, 13px);
+	opacity: 0.55;
+}
+
+/* pending 상태: accent color + 점 아이콘 강조 */
+.sync-settings-footer-status-dirty {
+	color: var(--color-orange, #e49c43);
+	opacity: 1;
+	font-weight: 600;
+}
+
+.sync-settings-footer-status-dirty::before {
+	content: "";
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--color-orange, #e49c43);
+	margin-right: 8px;
+	box-shadow: 0 0 0 3px rgba(228, 156, 67, 0.2);
+	animation: sync-settings-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes sync-settings-pulse {
+	0%, 100% {
+		box-shadow: 0 0 0 3px rgba(228, 156, 67, 0.2);
+	}
+	50% {
+		box-shadow: 0 0 0 5px rgba(228, 156, 67, 0.08);
+	}
+}
+
+.sync-settings-footer-save {
+	font-size: 0.9em;
+	padding: 4px 14px;
+}
+
+.sync-settings-footer-save[disabled] {
+	opacity: 0.4;
+	cursor: default;
+}
+
+/* ── Level 3: 토글 항목 ── */
+
+.sync-settings-items-container {
+	margin-left: 12px;
+	margin-right: 12px;
+	padding: 4px 0;
+}
+
+.sync-settings-item-row {
+	padding: 8px 16px 8px 16px !important;
+	border-bottom: none !important;
+}
+
+.sync-settings-item-row .setting-item-name {
+	font-size: 0.95em;
+	font-weight: 600;
+}
+
+.sync-settings-item-row .setting-item-description {
+	font-size: var(--font-ui-smaller, 12px);
+	opacity: 0.55;
+	padding-top: 3px;
+	padding-left: 10px;
+}
+
+/* Appearance 처럼 상태 정보(theme name) 가 subtitle 에 들어갈 때 accent */
+.sync-settings-item-row .sync-settings-subtitle-accent {
+	color: var(--text-accent);
+	opacity: 0.9;
+}
+
+/* OFF 항목: 텍스트 흐리게 + 이탤릭, 토글/배지는 선명 유지 */
+.sync-settings-item-row-off .setting-item-name {
+	opacity: 0.4;
+	font-style: italic;
+	font-weight: 400;
+}
+
+.sync-settings-item-row-off .setting-item-description {
+	opacity: 0.35;
+	font-style: italic;
+}
+
+/* 중앙 status 배지 — detail modal 여는 pill 버튼 */
+.sync-settings-status-badge {
+	grid-column: 1;
+	justify-self: end;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 3px 12px;
+	margin: 0;
+	background: transparent;
+	border: 1px solid var(--interactive-accent);
+	border-radius: 999px;
+	font-size: var(--font-ui-smaller, 12px);
+	font-weight: 500;
+	color: var(--text-accent);
+	cursor: pointer;
+	transition: background 0.12s ease, color 0.12s ease;
+}
+
+.sync-settings-status-badge:hover {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+.sync-settings-status-icon {
+	display: inline-flex;
+	align-items: center;
+}
+
+.sync-settings-status-icon svg {
+	width: 13px;
+	height: 13px;
+}
+
+/* Detail modal */
+.sync-settings-detail-title {
+	margin: 0 0 6px 0;
+	font-size: 1.15em;
+	font-weight: 600;
+}
+
+.sync-settings-detail-subtitle {
+	font-size: var(--font-ui-smaller, 12px);
+	opacity: 0.6;
+	margin: 0 0 14px 0;
+}
+
+.sync-settings-detail-empty {
+	opacity: 0.6;
+	font-style: italic;
+	text-align: center;
+	padding: 20px;
+}
+
+.sync-settings-detail-list {
+	max-height: 50vh;
+	overflow-y: auto;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+}
+
+.sync-settings-detail-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 12px;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.sync-settings-detail-row:last-child {
+	border-bottom: none;
+}
+
+.sync-settings-detail-left {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+	flex: 1;
+}
+
+/* 이름 한 줄화 + 길면 ellipsis */
+.sync-settings-detail-label {
+	font-size: 0.95em;
+	font-weight: 500;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	min-width: 0;
+}
+
+.sync-settings-detail-sub {
+	font-size: 0.78em;
+	opacity: 0.55;
+}
+
+.sync-settings-detail-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 10px;
+	font-size: 0.72em;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	border-radius: 999px;
+	flex-shrink: 0;
+	margin-left: 8px;
+	line-height: 1.2;
+}
+
+.sync-settings-detail-on {
+	color: var(--text-on-accent);
+	background: var(--interactive-accent);
+}
+
+.sync-settings-detail-off {
+	color: var(--text-muted);
+	background: var(--background-modifier-border);
+}
+
+.sync-settings-theme-hint {
+	font-size: 12px;
+	font-weight: 400;
+	opacity: 0.7;
+	margin-left: 8px;
+	font-style: italic;
+}
+
+/* Profiles folder — label / input+save / hint 3단 레이아웃 */
+.sync-settings-folder-section {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 12px 0 16px 0;
+	border-bottom: 1px solid var(--background-modifier-border);
+	margin-bottom: 12px;
+}
+
+.sync-settings-folder-label {
+	font-size: var(--font-ui-small, 13px);
+	font-weight: 600;
+}
+
+.sync-settings-folder-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.sync-settings-folder-input {
+	flex: 1 1 auto;
+	min-width: 0;
+	font-size: var(--font-ui-small, 13px);
+}
+
+/* Obsidian .clickable-icon 기본 스타일 사용. 배치만 맞춤. */
+.sync-settings-folder-save {
+	flex: 0 0 auto;
+}
+
+.sync-settings-folder-save svg {
+	stroke-width: 1.5;
+}
+
+.sync-settings-folder-hint {
+	font-size: var(--font-ui-smaller, 12px);
+	opacity: 0.6;
+}
+
+/* Admin / same-drive note at top of settings tab */
+.sync-settings-admin-note {
+	font-size: 0.85em;
+	padding: 10px 14px;
+	margin: 0 0 16px 0;
+	border-left: 4px solid var(--color-orange, #e49c43);
+	background: rgba(228, 156, 67, 0.12);
+	color: var(--text-normal);
+	border-radius: 0 4px 4px 0;
+}
+
+/* Compact confirm modal */
+.modal.sync-settings-compact-modal {
+	width: auto !important;
+	min-width: 280px;
+	max-width: 360px;
+}
+
+.sync-settings-compact-modal .modal-content {
+	padding: 18px 20px 16px 20px;
+}
+
+/* Simple confirm modal text (no title) */
+.sync-settings-confirm-text {
+	font-size: 1.05em;
+	font-weight: 500;
+	text-align: center;
+	margin: 8px 0 20px 0;
+}
+
+/* Create profile modal — input larger than label */
+.sync-settings-create-wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin: 8px 0 16px 0;
+}
+
+.sync-settings-create-label {
+	font-size: 0.78em;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	opacity: 0.6;
+}
+
+.sync-settings-create-input {
+	width: 100%;
+	font-size: 1.15em;
+	padding: 10px 12px;
+}
+
+.sync-settings-create-hint {
+	font-size: 0.78em;
+	opacity: 0.55;
+}
